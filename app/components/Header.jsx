@@ -107,7 +107,7 @@ export function Header({ children }) {
           </div>
           <Combobox.Input
             autoFocus
-            className={`search-input z-10 block w-full p-4 md:p-6 pl-14 md:pl-20 text-base md:text-xl font-bold dark:bg-secondry bg-white border dark:border-[#a9a9a9] border-gray-300 rounded-3xl outline-hidden appearance-none dark:hover:shadow-darkbox hover:shadow-lg dark:focus:shadow-darkbox focus:shadow-blue-100 focus:border-blue-300 ${
+            className={`search-input z-10 block w-full p-4 md:p-6 pl-14 md:pl-20 text-base md:text-xl font-bold bg-white dark:bg-secondry border border-gray-200 dark:border-white/10 rounded-3xl outline-hidden appearance-none transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_50px_rgba(0,0,0,0.6),0_0_35px_rgba(59,130,246,0.28)] hover:shadow-[0_12px_50px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.1),0_14px_55px_rgba(0,0,0,0.65),0_0_45px_rgba(59,130,246,0.32)] focus:ring-2 focus:ring-blue-400/50 dark:focus:ring-blue-300/40 focus:border-blue-300/60 ${
               results.length && 'focus:border-b-0 focus:rounded-b-none'
             }`}
             onChange={debouncedHandleChange}
@@ -118,7 +118,7 @@ export function Header({ children }) {
         </label>
 
         {results.length > 0 && (
-          <Combobox.Options className='absolute z-10 w-full overflow-hidden bg-white border border-gray-300 rounded-t-none shadow-lg rounded-3xl'>
+          <Combobox.Options className='absolute z-10 w-full overflow-hidden bg-white/98 dark:bg-[#0f172a]/92 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-white/10 rounded-t-none shadow-xl shadow-black/20 dark:shadow-black/50 rounded-3xl backdrop-blur-md'>
             {results.map(result => {
               const { item, matches } = result
               const { id, text } = item
@@ -138,7 +138,7 @@ export function Header({ children }) {
                 <Combobox.Option key={id} value={{ id, text }}>
                   {({ active, selected }) => (
                     <span
-                      className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100 dark:bg-slate-800' : 'bg-white dark:bg-secondry'}`}
+                      className={`block p-4 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/10 ${active ? 'bg-gray-100 dark:bg-white/10' : 'bg-white/0 dark:bg-transparent'}`}
                       href={`/${id}/#content`}
                     >
                       {selected && (
